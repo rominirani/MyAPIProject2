@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Famous Quotes</title>
+</head>
+<body>
+
+    <form action="javascript:void(0);">
+        <h2>List Greetings</h2>
+        <div><input id="listGreeting" type="submit" value="Submit"></div>
+    </form>
+    <div id="listGreetingsResult"></div>
+    
+    <script type="text/javascript">
+        function init() {
+        	//Parameters are APIName,APIVersion,CallBack function,API Root 
+        	gapi.client.load('quoteendpoint', 'v1', null, 'http://localhost:8888/_ah/api');
+        	
+        	document.getElementById('listGreeting').onclick = function() {
+        	    listQuotes();
+        	  }
+        }
+        
+        //List Quotes function that will execute the listQuote call
+        function listQuotes() {
+        	gapi.client.quoteendpoint.listQuote().execute(function(resp) {
+        		if (!resp.code) {
+        			resp.items = resp.items || [];
+        			var result = "";
+        			for (var i=0;i<resp.items.length;i++) {
+        				result = result+ resp.items[i].message + "..." + "<b>" + resp.items[i].author + "</b><br/>";
+        			}
+        			document.getElementById('listGreetingsResult').innerHTML = result;
+        		}
+        	});
+        }
+    </script>
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+</body>
+</html>
