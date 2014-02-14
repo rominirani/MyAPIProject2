@@ -1,10 +1,7 @@
 MyAPIProject2
 =============
 
-Google Cloud Endpoints Tutorial - Part 2 
-
-
-Sample Google Cloud Endpoints Project
+Google Cloud Endpoints Tutorial
 
 Blog Posts : 
 
