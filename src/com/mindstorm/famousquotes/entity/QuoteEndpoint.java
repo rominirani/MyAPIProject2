@@ -6,7 +6,9 @@ import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 import com.google.api.server.spi.response.CollectionResponse;
+import com.google.api.server.spi.response.UnauthorizedException;
 import com.google.appengine.api.datastore.Cursor;
+import com.google.appengine.api.users.User;
 import com.google.appengine.datanucleus.query.JDOCursorHelper;
 
 import java.util.HashMap;
@@ -96,8 +98,11 @@ public class QuoteEndpoint {
 	 * @param quote the entity to be inserted.
 	 * @return The inserted entity.
 	 */
-	@ApiMethod(name = "insertQuote")
-	public Quote insertQuote(Quote quote) {
+	@ApiMethod(name = "insertQuote",  scopes = {Constants.EMAIL_SCOPE},
+		    clientIds = {Constants.WEB_CLIENT_ID, Constants.ANDROID_CLIENT_ID, com.google.api.server.spi.Constant.API_EXPLORER_CLIENT_ID},
+		    audiences = {Constants.ANDROID_AUDIENCE})
+	public Quote insertQuote(Quote quote, User user) throws UnauthorizedException {
+		if (user == null) throw new UnauthorizedException("User is Not Valid");
 		PersistenceManager mgr = getPersistenceManager();
 		try {
 			if (quote.getId() != null) {

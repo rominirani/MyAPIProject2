@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"FWXGb4Q2eZqWRcG8B2Ixrr-vrqQ/6YlsiZ9BPGQnnMGWF9_sQ4sZFbg\"",
+ "etag": "\"FWXGb4Q2eZqWRcG8B2Ixrr-vrqQ/6HIOcjSUhN2L9yKXW7eVOwv5ELg\"",
  "discoveryVersion": "v1",
  "id": "quoteendpoint:v1",
  "name": "quoteendpoint",
@@ -14,9 +14,9 @@
   "x32": "http://www.google.com/images/icons/product/search-32.gif"
  },
  "protocol": "rest",
- "baseUrl": "https://helloapi123.appspot.com/_ah/api/quoteendpoint/v1/",
+ "baseUrl": "https://mybackendapi.appspot.com/_ah/api/quoteendpoint/v1/",
  "basePath": "/_ah/api/quoteendpoint/v1/",
- "rootUrl": "https://helloapi123.appspot.com/_ah/api/",
+ "rootUrl": "https://mybackendapi.appspot.com/_ah/api/",
  "servicePath": "quoteendpoint/v1/",
  "batchPath": "batch",
  "parameters": {

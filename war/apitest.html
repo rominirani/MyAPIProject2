@@ -5,6 +5,9 @@
 </head>
 <body>
 
+    <div id="login">
+       <input id="loginButton" type="button" value="Login"/>
+    </div>
     <form action="javascript:void(0);">
         <h2>List Quotes</h2>
         <div><input id="listQuote" type="submit" value="List Quotes"></div>
@@ -35,9 +38,41 @@
     
     
     <script type="text/javascript">
+    
+        var scopes = 'https://www.googleapis.com/auth/userinfo.email';
+        var client_id = '756161739003-0l5c7ptti2j42l28j5anijr5mukks835.apps.googleusercontent.com';
+    
+        function handleAuth() {
+    	  var request = gapi.client.oauth2.userinfo.get().execute(function(resp) {
+    	    if (!resp.code) {
+    	      // User is signed in, so hide the button
+    	      document.getElementById('loginButton').style.visibility = 'hidden';
+    	      document.getElementById('login').innerText = 'Welcome ' + resp.name;
+    	    }
+    	    else {
+    	    	document.getElementById('loginButton').style.visibility = '';
+    	    }
+    	  });
+    	}
+        
+        function signin(mode, callback) {
+        	  gapi.auth.authorize({client_id: client_id,scope: scopes, immediate: mode},callback);
+        }
+    
         function init() {
+        	var apisToLoad;
+        	var callback = function() {
+        	   if (--apisToLoad == 0) {
+        	     signin(true, handleAuth);
+        	   }
+        	}
+        	  
+        	apisToLoad = 2;
         	//Parameters are APIName,APIVersion,CallBack function,API Root 
-        	gapi.client.load('quoteendpoint', 'v1', null, 'http://localhost:8888/_ah/api');
+        	//gapi.client.load('quoteendpoint', 'v1', callback, 'http://localhost:8888/_ah/api');
+        	gapi.client.load('quoteendpoint', 'v1', callback, 'https://mybackendapi.appspot.com/_ah/api');
+        	gapi.client.load('oauth2','v2',callback);
+        	
         	
         	document.getElementById('listQuote').onclick = function() {
         	    listQuotes();
@@ -53,6 +88,10 @@
         	
         	document.getElementById('deleteQuote').onclick = function() {
         		deleteQuote();
+        	}
+        	
+        	document.getElementById('loginButton').onclick = function() {
+        		signin(false,handleAuth);
         	}
         }
         
@@ -81,9 +120,14 @@
         	requestData.author = _AuthorName;
         	requestData.message = _Message;
         	gapi.client.quoteendpoint.insertQuote(requestData).execute(function(resp) {
+        		console.log(resp);
         		if (!resp.code) {
         			//Just logging to console now, you can do your check here/display message
         			console.log(resp.id + ":" + resp.author + ":" + resp.message);
+        		}
+        		else {
+        			console.log(resp.code + " : " + resp.message);
+        			alert("Error : " + resp.code + ":" + resp.message);
         		}
         	});
         }

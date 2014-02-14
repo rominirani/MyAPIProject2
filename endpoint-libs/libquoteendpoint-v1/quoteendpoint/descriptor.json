@@ -1,13 +1,13 @@
 {
   "files": [
     {
-      "downloadUrl": "/downloads/quoteendpoint/v1/20140114094007/java/1.16.0-rc/mindstorm.com-quoteendpoint-v1-20140114094007-java-1.16.0-rc-sources.jar", 
-      "path": "mindstorm.com-quoteendpoint-v1-20140114094007-java-1.16.0-rc-sources.jar", 
+      "downloadUrl": "/downloads/quoteendpoint/v1/20140212051912/java/1.16.0-rc/mindstorm.com-quoteendpoint-v1-20140212051912-java-1.16.0-rc-sources.jar", 
+      "path": "mindstorm.com-quoteendpoint-v1-20140212051912-java-1.16.0-rc-sources.jar", 
       "type": "source", 
-      "timestamp": "2014-01-14 09:40"
+      "timestamp": "2014-02-12 05:19"
     }, 
     {
-      "path": "mindstorm.com-quoteendpoint-v1-20140114094007-java-1.16.0-rc.jar.properties", 
+      "path": "mindstorm.com-quoteendpoint-v1-20140212051912-java-1.16.0-rc.jar.properties", 
       "type": "android.properties"
     }
   ], 
@@ -702,5 +702,5 @@
   "packagePath": "famousquotes.entity", 
   "language_version": "1.16.0-rc", 
   "id": "quoteendpoint:v1", 
-  "revision": 20140114094007
+  "revision": 20140212051912
 }

@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"FWXGb4Q2eZqWRcG8B2Ixrr-vrqQ/6YlsiZ9BPGQnnMGWF9_sQ4sZFbg\"",
+ "etag": "\"FWXGb4Q2eZqWRcG8B2Ixrr-vrqQ/6HIOcjSUhN2L9yKXW7eVOwv5ELg\"",
  "discoveryVersion": "v1",
  "id": "quoteendpoint:v1",
  "name": "quoteendpoint",
@@ -14,8 +14,8 @@
   "x32": "http://www.google.com/images/icons/product/search-32.gif"
  },
  "protocol": "rpc",
- "rootUrl": "https://helloapi123.appspot.com/_ah/api/",
- "rpcUrl": "https://helloapi123.appspot.com/_ah/api/rpc",
+ "rootUrl": "https://mybackendapi.appspot.com/_ah/api/",
+ "rpcUrl": "https://mybackendapi.appspot.com/_ah/api/rpc",
  "rpcPath": "/_ah/api/rpc",
  "parameters": {
   "alt": {

@@ -8,8 +8,8 @@
 
   <groupId>com.google.apis</groupId>
   <artifactId>google-api-services-quoteendpoint</artifactId>
-  <version>v1-rev20140114094007-1.16.0-rc</version>
-  <name>quoteendpoint v1 (revision 20140114094007)</name>
+  <version>v1-rev20140212051912-1.16.0-rc</version>
+  <name>quoteendpoint v1 (revision 20140212051912)</name>
   <packaging>jar</packaging>
 
   <inceptionYear>2011</inceptionYear>
